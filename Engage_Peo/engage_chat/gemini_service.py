@@ -1,5 +1,5 @@
-import os
 from dotenv import load_dotenv
+import os
 from langchain_community.document_loaders import UnstructuredURLLoader
 from langchain_chroma import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
@@ -7,16 +7,23 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 
-# Load environment variables
+# Load .env file
 load_dotenv()
 
-# API key from env
+# ----------------------
+# API key from .env
+# ----------------------
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# URLs from env (split by comma)
-urls = os.getenv("ENGAGE_URLS").split(",")
-
-# Step 1: Load documents once
+# Step 1: Load documents once (so we don't re-embed every request)
+urls = [
+    "https://www.engagepeo.com/our-services",
+    "https://www.engagepeo.com/about-us",
+    "https://www.engagepeo.com/engage-brokers",
+    "https://www.engagepeo.com/blog-newsroom",
+    "https://www.engagepeo.com/contact-us",
+    "https://www.linkedin.com/company/engage-peo/"
+]
 loader = UnstructuredURLLoader(urls=urls)
 docs = loader.load()
 
@@ -53,11 +60,13 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-# Step 6: RAG chain
+# Step 6: RAG chain (prebuilt at import time)
 documents_chain = create_stuff_documents_chain(llm, prompt)
 rag_chain = create_retrieval_chain(retriever, documents_chain)
 
-# Public function
+# ----------------------
+# Public function to call in views
+# ----------------------
 def get_services_info(query: str):
     """Run the RAG chain on the given query."""
     response = rag_chain.invoke({"input": query})
