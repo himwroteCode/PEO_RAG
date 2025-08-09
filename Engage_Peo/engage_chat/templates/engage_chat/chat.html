@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EngagePeo AI Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'engage_chat/styles.css' %}">
+</head>
+<body data-theme="system">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="{% static 'engage_chat/logo.svg' %}" alt="EngagePeo" class="company-logo">
+            </div>
+            <button id="new-chat" class="new-chat-btn">
+                <i class="fas fa-plus"></i>
+                New Chat
+            </button>
+            
+            <div class="chat-history">
+                <!-- Chat history will be populated by JavaScript -->
+            </div>
+            
+            <!-- Theme Switcher -->
+            <div class="theme-control">
+                <div class="theme-label">
+                    <i class="fas fa-palette"></i>
+                    <span>Interface Theme</span>
+                </div>
+                <div class="theme-options">
+                    <button class="theme-btn" data-theme="light">
+                        <i class="fas fa-sun"></i>
+                        <span>Light</span>
+                    </button>
+                    <button class="theme-btn" data-theme="dark">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark</span>
+                    </button>
+                    <button class="theme-btn" data-theme="system">
+                        <i class="fas fa-desktop"></i>
+                        <span>System</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="chat-container">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-content">
+                    <div class="header-title">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <h1>EngagePeo AI Assistant</h1>
+                            <p>Your HR and Business Solutions Partner</p>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-btn" title="Export chat">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Welcome Screen -->
+            <div class="welcome-screen" id="welcome-screen">
+                <div class="welcome-content">
+                    <div class="welcome-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h2>Welcome to EngagePeo AI Assistant</h2>
+                    <p>I'm here to help you with HR solutions and business inquiries</p>
+                    <div class="suggestion-chips">
+                        <button class="suggestion-chip">Tell me about HR services</button>
+                        <button class="suggestion-chip">Employee benefits help</button>
+                        <button class="suggestion-chip">Payroll management</button>
+                        <button class="suggestion-chip">Workplace compliance</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <main class="chat-box" id="chat-box"></main>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator hidden" id="typing-indicator">
+                <div class="typing-content">
+                    <div class="typing-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="typing-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <button id="clear-chat" class="clear-chat-btn" title="Clear chat">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+                <form id="chat-form" class="chat-input">
+                    <div class="input-wrapper">
+                        <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" required>
+                        <button type="button" class="attachment-btn" title="Add attachment">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                    </div>
+                    <button type="submit" class="send-btn" title="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'engage_chat/script.js' %}"></script>
+</body>
+</html>
