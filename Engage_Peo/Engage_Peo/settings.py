@@ -152,7 +152,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-o)^tft_ohu51p(h4w6^#s
 DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
 # For Render deployment - only add render hosts when not in debug mode
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 if not DEBUG:
     ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
