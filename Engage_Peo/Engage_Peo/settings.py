@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-o)^tft_ohu51p(h4w6^#s!yzih((@@gsrj$696k#wvumt=i$=7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -40,7 +40,7 @@ ROOT_URLCONF = 'Engage_Peo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # Add custom template paths here if needed
+        'DIRS': [],  # You can add custom template directories here if needed
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +80,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'engage_chat' / 'static',  # Makes your app's static folder available
+    BASE_DIR / 'engage_chat' / 'static',  # Makes your static/engage_chat folder available
 ]
 
 # Default primary key field type
