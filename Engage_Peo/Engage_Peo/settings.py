@@ -40,7 +40,7 @@ ROOT_URLCONF = 'Engage_Peo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # You can add custom template directories here if needed
+        'DIRS': [],  # Add custom template paths here if needed
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +80,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'engage_chat' / 'static',  # Makes your static/engage_chat folder available
+    BASE_DIR / 'engage_chat' / 'static',  # Makes your app's static folder available
 ]
 
 # Default primary key field type
