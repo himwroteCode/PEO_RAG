@@ -9,3 +9,4 @@ lxml
 chromadb
 python-dotenv
 gunicorn
+whitenoise
