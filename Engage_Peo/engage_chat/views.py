@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-from .gemini_service import get_services_info
+from .services.gemini_service import get_services_info
 
 def chat_page(request):
     """Render the chatbot UI page."""
