@@ -182,5 +182,3 @@ def get_services_info(query: str):
     response = rag_chain.invoke({"input": query})
     return response["answer"]
 
-
-
