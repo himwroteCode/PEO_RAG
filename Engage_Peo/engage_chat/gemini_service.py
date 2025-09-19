@@ -84,7 +84,7 @@ from langchain_core.prompts import ChatPromptTemplate
 # Load environment variables
 # ----------------------
 load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEY = "AIzaSyD1ZntoJW0nCBTc0ASf1qh5pysVP3qEoLQ"
 
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY not found in .env file")
